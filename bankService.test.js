@@ -16,3 +16,8 @@ test('When printing statements, each deposit is associated with an amount', () =
   const deposit = printStatements()[0];
   expect(deposit.amount).toStrictEqual(10);
 });
+
+test('When printing statements, each withdrawal is associated with an amount', () => {
+  const withdrawal = printStatements()[1];
+  expect(withdrawal).toStrictEqual({ amount: -10 });
+});
