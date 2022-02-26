@@ -37,3 +37,8 @@ test('When printing statements, each deposit is associated with the account bala
   const deposit = printStatements()[0];
   expect(deposit.balance).toBe(10);
 });
+
+test('When printing statements, each withdrawal is associated with the account balance', () => {
+  const withdrawal = printStatements()[1];
+  expect(withdrawal.balance).toBe(0);
+})
