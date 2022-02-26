@@ -17,9 +17,13 @@ class StatementHistory {
 class Statement {
   constructor(date, credit, debit, balance) {
     this.date = date;
-    this.credit = credit;
-    this.debit = debit;
-    this.balance = balance;
+    this.credit = this.toEuros(credit);
+    this.debit = this.toEuros(debit);
+    this.balance = this.toEuros(balance);
+  }
+
+  toEuros(number) {
+    return `${Number(number).toFixed(2)} €`;
   }
 }
 
