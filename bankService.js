@@ -1,32 +1,7 @@
-const { formatDate } = require('./dateUtils');
-class StatementHistory {
-  constructor() {
-    this.statements = [];
-  }
+const { formatDate } = require('./utils');
+const { StatementHistory } = require('./StatementHistory');
+const { Statement } = require('./Statement');
 
-  addStatement(statement) {
-    this.statements.unshift(statement);  
-  }
-
-  printStatements() {
-    console.table(this.statements);
-    return this.statements;
-  }
-}
-
-class Statement {
-  constructor(date, credit, debit, balance) {
-    this.date = date;
-    this.credit = this.toEuros(credit);
-    this.debit = this.toEuros(debit);
-    this.balance = this.toEuros(balance);
-  }
-
-  toEuros(number) {
-    if (isNaN(parseFloat(number))) return null;
-    return `${Number(number).toFixed(2)} €`;
-  }
-}
 
 let balance = 0;
 const statementHistory = new StatementHistory();

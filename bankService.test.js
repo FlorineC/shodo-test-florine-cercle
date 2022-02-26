@@ -1,5 +1,5 @@
 const { deposit, withdrawal, printStatements } = require('./bankService');
-const { formatDate } = require('./dateUtils');
+const { formatDate } = require('./utils');
 
 test('In a bank account without operations, the history of operations is empty', () => {
   expect(printStatements()).toStrictEqual([]);
@@ -49,7 +49,7 @@ test('Scenario of the file given by Thomas', () => {
   expect(withdrawal(500)).toBe(2500);
   
   const [withdrawal1, deposit2, deposit1, ...rest] = printStatements();
-  
+
   expect(deposit1.credit).toBe('1000.00 €');
   expect(deposit1.debit).toBeNull();
   expect(deposit1.balance).toBe('1000.00 €');
