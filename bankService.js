@@ -1,4 +1,5 @@
 let balance = 0;
+const statements = [];
 
 function deposit(amount) {
   balance += amount;
@@ -10,4 +11,9 @@ function withdrawal(amount) {
   return balance;
 }
 
-module.exports = { deposit, withdrawal };
+function printStatements() {
+  console.table(statements);
+  return statements;
+}
+
+module.exports = { deposit, withdrawal, printStatements };
