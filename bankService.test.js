@@ -32,3 +32,8 @@ test('When printing statements, each withdrawal is associated with a date', () =
   const withdrawal = printStatements()[1];
   expect(withdrawal.date).toBe(formatDate(new Date()));
 });
+
+test('When printing statements, each deposit is associated with the account balance', () => {
+  const deposit = printStatements()[0];
+  expect(deposit.balance).toBe(10);
+});
