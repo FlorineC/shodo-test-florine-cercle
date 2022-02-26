@@ -23,6 +23,7 @@ class Statement {
   }
 
   toEuros(number) {
+    if (isNaN(parseFloat(number))) return null;
     return `${Number(number).toFixed(2)} €`;
   }
 }
@@ -43,11 +44,11 @@ function createStatementInHistory(credit, debit) {
 }
 
 function deposit(amount) {
-  return doOperation(amount, 0);
+  return doOperation(amount, null);
 }
 
 function withdrawal(amount) {
-  return doOperation(0, amount);
+  return doOperation(null, amount);
 }
 
 function printStatements() {
