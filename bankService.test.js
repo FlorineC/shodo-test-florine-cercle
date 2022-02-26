@@ -1,4 +1,5 @@
-const { deposit, withdrawal, printStatements, formatDate } = require('./bankService');
+const { deposit, withdrawal, printStatements } = require('./bankService');
+const { formatDate } = require('./dateUtils');
 
 test('In a bank account without operations, the history of operations is empty', () => {
   expect(printStatements()).toStrictEqual([]);
