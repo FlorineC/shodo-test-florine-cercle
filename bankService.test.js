@@ -43,3 +43,22 @@ test('When printing statements, each withdrawal is associated with the account b
   expect(withdrawal.balance).toBe('0.00 €');
 });
 
+test('Scenario of the file given by Thomas', () => {
+  expect(deposit(1000)).toBe(1000);
+  expect(deposit(2000)).toBe(3000);
+  expect(withdrawal(500)).toBe(2500);
+  
+  const [withdrawal1, deposit2, deposit1, ...rest] = printStatements();
+  
+  expect(deposit1.credit).toBe('1000.00 €');
+  expect(deposit1.debit).toBeNull();
+  expect(deposit1.balance).toBe('1000.00 €');
+
+  expect(deposit2.credit).toBe('2000.00 €');
+  expect(deposit2.debit).toBeNull();
+  expect(deposit2.balance).toBe('3000.00 €');
+
+  expect(withdrawal1.credit).toBeNull();
+  expect(withdrawal1.debit).toBe('500.00 €');
+  expect(withdrawal1.balance).toBe('2500.00 €');
+})
