@@ -1,5 +1,16 @@
+class StatementHistory {
+  constructor() {
+    this.statements = [];
+  }
+
+  printStatements() {
+    console.table(this.statements);
+    return this.statements;
+  }
+}
+
 let balance = 0;
-const statements = [];
+const statementHistory = new StatementHistory();
 
 function deposit(amount) {
   balance += amount;
@@ -12,8 +23,8 @@ function withdrawal(amount) {
 }
 
 function printStatements() {
-  console.table(statements);
-  return statements;
+  return statementHistory.printStatements();
 }
+
 
 module.exports = { deposit, withdrawal, printStatements };
