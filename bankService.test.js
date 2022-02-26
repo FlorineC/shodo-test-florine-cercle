@@ -11,3 +11,8 @@ test('when doing a deposit of 10€ on an empty account the balance equals 10€
 test('when doing a withdrawal of 10€ on an account with 10€ balance, the balance equals 0€', () => {
   expect(withdrawal(10)).toBe(0);
 });
+
+test('When printing statements, each deposit is associated with an amount', () => {
+  const deposit = printStatements()[0];
+  expect(deposit.amount).toStrictEqual(10);
+});
