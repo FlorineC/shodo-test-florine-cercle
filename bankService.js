@@ -3,6 +3,10 @@ class StatementHistory {
     this.statements = [];
   }
 
+  addStatement(amount) {
+    this.statements.push({amount});  
+  }
+
   printStatements() {
     console.table(this.statements);
     return this.statements;
@@ -14,6 +18,7 @@ const statementHistory = new StatementHistory();
 
 function deposit(amount) {
   balance += amount;
+  statementHistory.addStatement(amount);
   return balance;
 }
 
