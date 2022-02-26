@@ -15,12 +15,12 @@ test('when doing a withdrawal of 10€ on an account with 10€ balance, the bal
 
 test('When printing statements, each deposit is associated with the amount of the operation', () => {
   const deposit = printStatements()[0];
-  expect(deposit.credit).toStrictEqual(10);
+  expect(deposit.credit).toStrictEqual('10.00 €');
 });
 
 test('When printing statements, each withdrawal is associated with the amount of the operation', () => {
   const withdrawal = printStatements()[1];
-  expect(withdrawal.debit).toStrictEqual(10);
+  expect(withdrawal.debit).toStrictEqual('10.00 €');
 });
 
 test('When printing statements, each deposit is associated with a date', () => {
@@ -35,10 +35,11 @@ test('When printing statements, each withdrawal is associated with a date', () =
 
 test('When printing statements, each deposit is associated with the account balance', () => {
   const deposit = printStatements()[0];
-  expect(deposit.balance).toBe(10);
+  expect(deposit.balance).toBe('10.00 €');
 });
 
 test('When printing statements, each withdrawal is associated with the account balance', () => {
   const withdrawal = printStatements()[1];
-  expect(withdrawal.balance).toBe(0);
-})
+  expect(withdrawal.balance).toBe('0.00 €');
+});
+
