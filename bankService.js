@@ -1,4 +1,6 @@
-function sum(a, b) {
-  return a + b;
+let balance = 0;
+function deposit(amount) {
+  balance += amount;
+  return balance;
 }
-module.exports = sum;
+module.exports = { deposit };
