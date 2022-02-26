@@ -17,20 +17,21 @@ let balance = 0;
 const statementHistory = new StatementHistory();
 
 function deposit(amount) {
-  balance += amount;
-  statementHistory.addStatement(+amount);
-  return balance;
+  return doOperation(+amount);
 }
 
 function withdrawal(amount) {
-  balance -= amount;
-    statementHistory.addStatement(-amount);
+  return doOperation(-amount);
+}
+
+function doOperation(amount) {
+  balance += amount;
+  statementHistory.addStatement(amount);
   return balance;
 }
 
 function printStatements() {
   return statementHistory.printStatements();
 }
-
 
 module.exports = { deposit, withdrawal, printStatements };
