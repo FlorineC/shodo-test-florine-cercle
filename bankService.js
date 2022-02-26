@@ -1,10 +1,12 @@
+const { format } = require('date-fns');
+
 class StatementHistory {
   constructor() {
     this.statements = [];
   }
 
-  addStatement(amount) {
-    this.statements.push({amount});  
+  addStatement(amount, date) {
+    this.statements.push({ amount, date });  
   }
 
   printStatements() {
@@ -26,12 +28,16 @@ function withdrawal(amount) {
 
 function doOperation(amount) {
   balance += amount;
-  statementHistory.addStatement(amount);
+  statementHistory.addStatement(amount, formatDate(new Date()));
   return balance;
+}
+
+function formatDate(date) {
+  return format(date, 'dd/MM/yyyy');
 }
 
 function printStatements() {
   return statementHistory.printStatements();
 }
 
-module.exports = { deposit, withdrawal, printStatements };
+module.exports = { deposit, withdrawal, printStatements, formatDate };
