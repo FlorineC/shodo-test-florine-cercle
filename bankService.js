@@ -15,9 +15,9 @@ class StatementHistory {
 }
 
 class Statement {
-  constructor(amount, date) {
-    this.amount = amount;
+  constructor(date, amount) {
     this.date = date;
+    this.amount = amount;
   }
 }
 
@@ -32,7 +32,7 @@ function doOperation(amount) {
 
 function createStatementInHistory(amount) {
   const formattedDate = formatDate(new Date());
-  const statement = new Statement(amount, formattedDate);
+  const statement = new Statement(formattedDate, amount);
   statementHistory.addStatement(statement);
 }
 
