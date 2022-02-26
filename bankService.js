@@ -5,7 +5,7 @@ class StatementHistory {
   }
 
   addStatement(statement) {
-    this.statements.push(statement);  
+    this.statements.unshift(statement);  
   }
 
   printStatements() {
