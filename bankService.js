@@ -15,10 +15,11 @@ class StatementHistory {
 }
 
 class Statement {
-  constructor(date, credit, debit) {
+  constructor(date, credit, debit, balance) {
     this.date = date;
     this.credit = credit;
     this.debit = debit;
+    this.balance = balance;
   }
 }
 
@@ -33,7 +34,7 @@ function doOperation(credit, debit) {
 
 function createStatementInHistory(credit, debit) {
   const formattedDate = formatDate(new Date());
-  const statement = new Statement(formattedDate, credit, debit);
+  const statement = new Statement(formattedDate, credit, debit, balance);
   statementHistory.addStatement(statement);
 }
 
