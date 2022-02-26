@@ -18,12 +18,13 @@ const statementHistory = new StatementHistory();
 
 function deposit(amount) {
   balance += amount;
-  statementHistory.addStatement(amount);
+  statementHistory.addStatement(+amount);
   return balance;
 }
 
 function withdrawal(amount) {
   balance -= amount;
+    statementHistory.addStatement(-amount);
   return balance;
 }
 
